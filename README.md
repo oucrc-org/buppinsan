@@ -1,6 +1,14 @@
 Migrationをするときはlaradockのworkspaceに入ってから行うこと
 https://qiita.com/taimiso/items/7867f2bbc09b5dff90b6
 
+Laravel 8.0からRoutingですることが増える。以下を参照
+https://qiita.com/tamakiiii/items/e71040173fa0a1fcad83
+
+<code>npm install</code>　と <code>npm run dev</code>は必須くさい。
+
+あと、ログインしないと他のページ見れないから、最初に<code>/</code>のページでregisterからアカウントを作る必要あり？
+
+
 <!--<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
