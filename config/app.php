@@ -229,6 +229,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        //日本語のセットを使うためのやつ
+        'faker_locale' => 'ja_JP',
     ],
 
 ];

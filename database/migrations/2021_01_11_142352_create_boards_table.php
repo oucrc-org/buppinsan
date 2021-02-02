@@ -17,7 +17,7 @@ class CreateBoardsTable extends Migration
             $table->increments('id');
             $table->string('name', 100);
             $table->string('tepra_number', 50);
-            $table->string('kind')->nullable();
+            $table->integer('kind_id')->nullable();
             $table->string('photo_path');
             $table->string('detail', 200);
             $table->timestamps();
