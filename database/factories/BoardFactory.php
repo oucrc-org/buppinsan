@@ -25,11 +25,11 @@ class BoardFactory extends Factory
     public function definition()
     {
         return [
-            'name' => Str::random(10),
+            'name' => $this->faker->word(),
             'tepra_number' => Str::random(7),
             'kind_id' => 1,
             'photo_path' => $this->faker->imageUrl(),
-            'detail' => Str::random(100),
+            'detail' => $this->faker->realText(),
         ];
     }
 }

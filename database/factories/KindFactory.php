@@ -23,8 +23,7 @@ class KindFactory extends Factory
     public function definition()
     {
         return [
-            'name' => Str::random(5),
-
+            'name' => $this->faker->word(),
         ];
     }
 }
