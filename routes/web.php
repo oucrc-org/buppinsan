@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\BuppinController;
+use App\Http\Controllers\TagController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,12 +27,12 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => ['auth']], function (){
 
     //BuppinControllerの管轄
-    Route::resource('/', 'App\Http\Controllers\BuppinController', ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/', BuppinController::class, ['only' => ['create', 'show', "edit", "delete"]]);
 
     //TagControllerの管轄
-    Route::resource('/tag', 'TagController', ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/tag', TagController::class, ['only' => ['create', 'show', "edit", "delete"]]);
 
     //UserControllerの管轄（とりあえずcreateもぶち込んでます）
-    Route::resource('/user', 'UserController', ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/user', UserController::class, ['only' => ['create', 'show', "edit", "delete"]]);
 
 });

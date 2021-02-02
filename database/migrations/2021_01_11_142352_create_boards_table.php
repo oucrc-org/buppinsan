@@ -20,8 +20,7 @@ class CreateBoardsTable extends Migration
             $table->string('kind')->nullable();
             $table->string('photo_path');
             $table->string('detail', 200);
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->timestamps();
         });
     }
 
