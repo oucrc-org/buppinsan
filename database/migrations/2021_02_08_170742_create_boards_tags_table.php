@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKindsTable extends Migration
+class CreateBoardsTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateKindsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kinds', function (Blueprint $table) {
+        Schema::create('boards_tags', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('boards_id')->comment('ボードid');
+            $table->integer('tags_id')->comment('タグid');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateKindsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kinds');
+        Schema::dropIfExists('boards_tags');
     }
 }
