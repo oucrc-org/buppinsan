@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Board;
+use App\Models\BoardTag;
+use App\Models\Tag;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,5 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+
+        Board::factory(10)->create();
+        BoardTag::factory(10)->create();
+        Tag::factory(10)->create();
     }
 }

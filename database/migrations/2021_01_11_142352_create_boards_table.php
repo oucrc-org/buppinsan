@@ -15,13 +15,12 @@ class CreateBoardsTable extends Migration
     {
         Schema::create('boards', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 100);
-            $table->string('tepra_number', 50);
-            $table->string('kind')->nullable();
-            $table->string('photo_path');
-            $table->string('detail', 200);
-            $table->timestamp('created_at');
-            $table->timestamp('updated_at');
+            $table->string('name', 100)->comment('物品名');
+            $table->string('tepra_number', 50)->nullable()->comment('テプラナンバー');
+            $table->integer('belong')->comment('私物かどうか');
+            $table->string('photo_path')->nullable()->comment('写真のURL');
+            $table->string('detail', 200)->comment('紹介文');
+            $table->timestamps();
         });
     }
 
@@ -35,3 +34,13 @@ class CreateBoardsTable extends Migration
         Schema::dropIfExists('boards');
     }
 }
+
+// かきくけこ
+// じづうｆｈUEffuseE
+// あっかかかっかっか
+// I'm f**ker.
+// I love you.
+// hey x
+//
+// Sorry...
+// 卍卍卍卍卍卍卍卍卍卍卍卍卍卍卍卍卍卍🍆🍆🍆🍆🍆🍆子茄スビ
