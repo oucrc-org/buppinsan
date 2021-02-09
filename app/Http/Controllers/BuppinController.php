@@ -24,7 +24,7 @@ class BuppinController extends Controller
      */
     public function create()
     {
-        return view('buppin.create');
+        return view('buppin.create')->with('board', new Board());
     }
 
     /**
@@ -60,11 +60,12 @@ class BuppinController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
+        $board = Board::where('id', $id)->firstOrFail();
+        return view('buppin.edit')->with('board', $board);
     }
 
     /**
@@ -76,7 +77,14 @@ class BuppinController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $board = Board::where('id', $request->id)->update([
+            'name' => $request->name,
+            'tepra_number' => $request->tepra_number,
+            'belong' => $request->belong,
+            'photo_path' => $request->photo_path,
+            'detail' => $request->detail
+        ]);
+        return redirect(route('buppin.create'))->with('flash_message', '更新しました');
     }
 
     /**
