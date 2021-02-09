@@ -11,12 +11,6 @@ class Board extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $attributes = [
-        'name' => 'error',
-        'belong' => 0,
-        'detail' => '紹介文が入力されていません'
-    ];
-
     protected $fillable = [
         'name',
         'tepra_number',
