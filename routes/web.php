@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => ['auth']], function (){
 
     //BuppinControllerの管轄
-    Route::resource('/', BuppinController::class, ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', "edit", "delete", "store"]]);
 
     //TagControllerの管轄
     Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);

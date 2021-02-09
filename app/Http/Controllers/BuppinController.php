@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Buppinsan;
 
 class BuppinController extends Controller
 {
@@ -21,22 +20,29 @@ class BuppinController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        return view('buppin.create');
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
-        //
+        Board::create([
+            'name' => $request->name,
+            'tepra_number' => $request->tepra_number,
+            'belong' => $request->belong,
+            'photo_path' => $request->photo_path,
+            'detail' => $request->detail
+        ]);
+        return redirect(route('buppin.create'))->with('flash_message', '登録しました');
     }
 
     /**
