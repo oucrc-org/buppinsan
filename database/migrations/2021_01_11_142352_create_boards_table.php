@@ -20,6 +20,7 @@ class CreateBoardsTable extends Migration
             $table->integer('belong')->comment('私物かどうか');
             $table->string('photo_path')->nullable()->comment('写真のURL');
             $table->string('detail', 200)->comment('紹介文');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

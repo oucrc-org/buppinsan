@@ -27,7 +27,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::group(['middleware' => ['auth']], function (){
 
     //BuppinControllerの管轄
-    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
+    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', "edit", 'destroy', 'store']]);
 
     //TagControllerの管轄
     Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
