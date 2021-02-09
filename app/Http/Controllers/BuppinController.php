@@ -53,7 +53,8 @@ class BuppinController extends Controller
      */
     public function show($id)
     {
-        //
+        $board = Board::where('id', $id)->firstOrFail();
+        return view('buppin.show')->with('board', $board);
     }
 
     /**
@@ -87,6 +88,10 @@ class BuppinController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // 削除する項目を別のテーブルに退避する処理
+        Board::WHERE('id', $id)->delete();
+
+        // 仮状態（一覧表示にリダイレクトするのが本来の挙動）
+        return redirect(route('buppin.create'))->with('flash_message', 'うんぴしました');
     }
 }
