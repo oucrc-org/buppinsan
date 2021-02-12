@@ -30,7 +30,7 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('/', BuppinController::class, ['only' => ['create', 'show', "edit", "delete"]]);
 
     //TagControllerの管轄
-    Route::resource('/tag', TagController::class, ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
 
     //UserControllerの管轄（とりあえずcreateもぶち込んでます）
     Route::resource('/user', UserController::class, ['only' => ['create', 'show', "edit", "delete"]]);
