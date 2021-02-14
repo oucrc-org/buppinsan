@@ -18,4 +18,8 @@ class Board extends Model
         'photo_path',
         'detail'
     ];
+
+    public function tags(){
+        return $this->belongsToMany('App\Models\Tag');
+    }
 }

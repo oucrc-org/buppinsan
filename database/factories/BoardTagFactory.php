@@ -22,8 +22,8 @@ class BoardTagFactory extends Factory
     public function definition()
     {
         return [
-            'boards_id' => 1,
-            'tags_id' => 1,
+            'board_id' => 1,
+            'tag_id' => 1,
         ];
     }
 }

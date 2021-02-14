@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         Board::factory(10)->create();
-        BoardTag::factory(10)->create();
         Tag::factory(10)->create();
+        BoardTag::factory(1)->create();
     }
 }
