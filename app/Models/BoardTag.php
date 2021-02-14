@@ -9,9 +9,5 @@ class BoardTag extends Model
 {
     use HasFactory;
 
-    protected $table = 'boards_tags';
-
-    public function board(){
-        return $this->belongsTo('');
-    }
+    protected $table = 'board_tag';
 }
