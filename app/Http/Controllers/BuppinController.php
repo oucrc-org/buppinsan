@@ -42,7 +42,7 @@ class BuppinController extends Controller
             'photo_path' => $request->photo_path,
             'detail' => $request->detail
         ]);
-        return redirect(route('buppin.create'))->with('flash_message', '登録しました');
+        return redirect(route('home'))->with('flash_message', '登録しました');
     }
 
     /**
@@ -85,7 +85,7 @@ class BuppinController extends Controller
             'photo_path' => $request->photo_path,
             'detail' => $request->detail
         ]);
-        return redirect(route('buppin.create'))->with('flash_message', '更新しました');
+        return redirect(route('home'))->with('flash_message', '更新しました');
     }
 
     /**
@@ -100,6 +100,6 @@ class BuppinController extends Controller
         Board::WHERE('id', $id)->delete();
 
         // 仮状態（一覧表示にリダイレクトするのが本来の挙動）
-        return redirect(route('buppin.create'))->with('flash_message', 'うんぴしました');
+        return redirect(route('home'))->with('flash_message', 'うんぴしました');
     }
 }
