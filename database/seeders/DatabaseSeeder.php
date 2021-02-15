@@ -21,5 +21,9 @@ class DatabaseSeeder extends Seeder
         Board::factory(10)->create();
         BoardTag::factory(10)->create();
         Tag::factory(10)->create();
+
+        $this->call([
+            UserTableSeeder::class
+        ]);
     }
 }
