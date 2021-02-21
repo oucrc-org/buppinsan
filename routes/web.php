@@ -23,6 +23,8 @@ Route::group(['middleware' => ['auth']], function (){
 
     //PippinControllerの管轄
     Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
+    //BuppinControllerの管轄
+    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', "edit", 'destroy', 'store']]);
 
     //TagControllerの管轄
     Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
