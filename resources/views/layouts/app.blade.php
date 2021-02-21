@@ -2,6 +2,8 @@
 <html lang="ja">
 <head>
     <title>物品さん</title>
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}" defer></script>
 </head>
 <body>
     <h1>Header</h1>
@@ -13,9 +15,9 @@
         </div>
     @endif
 
-    <main class="mt-4">
-        @yield('content')
-    </main>
+    <div id="app">
+
+    </div>
 
     <h1>Footer</h1>
 </body>

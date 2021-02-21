@@ -32,4 +32,7 @@ Route::group(['middleware' => ['auth']], function (){
     //UserControllerの管轄（とりあえずcreateもぶち込んでます）
     Route::resource('/user', UserController::class, ['only' => ['index', "update", "destroy"]]);
 
+    Route::get('{any}', function (){
+        return view('layouts.app');
+    })->where('any', '.*');
 });
