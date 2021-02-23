@@ -9,5 +9,5 @@ class BoardTag extends Model
 {
     use HasFactory;
 
-    protected $table = 'boards_tags';
+    protected $table = 'board_tag';
 }

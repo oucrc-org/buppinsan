@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BuppinController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -16,18 +17,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::get('/', [SearchController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function (){
 
+    //PippinControllerの管轄
+    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
     //BuppinControllerの管轄
-    Route::resource('/', BuppinController::class, ['only' => ['create', 'show', "edit", "delete"]]);
+    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', "edit", 'destroy', 'store']]);
 
     //TagControllerの管轄
     Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
@@ -35,4 +32,7 @@ Route::group(['middleware' => ['auth']], function (){
     //UserControllerの管轄（とりあえずcreateもぶち込んでます）
     Route::resource('/user', UserController::class, ['only' => ['index', "update", "destroy"]]);
 
+    Route::get('{any}', function (){
+        return view('layouts.app');
+    })->where('any', '.*');
 });
