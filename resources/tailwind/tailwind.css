@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.header{
+    @apply bg-white fixed left-0 right-0 shadow-md top-0 w-full h-header z-10;
+}
+
+.aside{
+    @apply bg-white bottom-0 fixed h-full left-0 shadow-md pt-header w-aside z-0;
+}
+
+.main {
+    @apply pt-header pl-aside;
+}

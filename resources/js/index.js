@@ -10,15 +10,11 @@ import User from "./layouts/user";
 import './../css/app.css';
 
 function Index() {
-    const mainStyle = {
-        'padding-left': '350px',
-        'padding-top': '90px'
-    };
     return (
         <BrowserRouter>
             <Header/>
             <Aside/>
-            <main className="bg-red-200" style={mainStyle}>
+            <main className="main">
                 <Switch>
                     <Route path="/" exact>
                         <h1>Hello!!!</h1>
