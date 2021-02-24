@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [SearchController::class, 'index'])->name('home');
+Route::get('/api/getAllTags', [TagController::class, 'index']);
+
+//Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
 
 Route::group(['middleware' => ['auth']], function (){
 

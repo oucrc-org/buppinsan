@@ -21,9 +21,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        $tags = Tag::query()->get();
-        return view('tags.index')
-            ->with('tags', $tags);
+        return Tag::query()->get();
+//        return view('tags.index')
+//            ->with('tags', $tags);
     }
 
     /**
