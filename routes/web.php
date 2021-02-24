@@ -22,7 +22,7 @@ Route::get('/', [SearchController::class, 'index'])->name('home');
 Route::group(['middleware' => ['auth']], function (){
 
     //PippinControllerの管轄
-    Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
+    /*Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
     //BuppinControllerの管轄
     Route::resource('/buppin', BuppinController::class, ['only' => ['create', 'show', "edit", 'destroy', 'store']]);
 
@@ -30,9 +30,9 @@ Route::group(['middleware' => ['auth']], function (){
     Route::resource('/tag', TagController::class, ['only' => ['index', 'store', "update", "destroy"]]);
 
     //UserControllerの管轄（とりあえずcreateもぶち込んでます）
-    Route::resource('/user', UserController::class, ['only' => ['index', "update", "destroy"]]);
-
-    Route::get('{any}', function (){
-        return view('layouts.app');
-    })->where('any', '.*');
+    Route::resource('/user', UserController::class, ['only' => ['index', "update", "destroy"]]);*/
 });
+
+Route::get('{any}', function (){
+    return view('layouts.app');
+})->where('any', '.*');
