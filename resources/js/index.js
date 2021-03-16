@@ -3,7 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import Header from "./components/Header";
 import Aside from "./components/Aside";
-import Buppin from "./layouts/buppin";
+import Board from "./layouts/board";
 import Tag from "./layouts/tag";
 import User from "./layouts/user";
 import './../css/app.css';
@@ -18,8 +18,8 @@ function Index() {
                     <Route path="/" exact>
                         <h1>Hello!!!</h1>
                     </Route>
-                    <Route path="/buppin" exact>
-                        <Buppin/>
+                    <Route path="/board" exact>
+                        <Board/>
                     </Route>
                     <Route path="/tag">
                         <Tag/>
