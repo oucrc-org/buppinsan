@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['middleware' => ['api'], 'prefix' => 'api'], function () {
     Route::get('/getBoards', [BoardController::class, 'getBoards']);
+    Route::get('/getBoardDetail/{board_id}', [BoardController::class, 'getBoardDetail']);
 });
 
 
@@ -32,8 +33,6 @@ Route::group(['middleware' => ['api'], 'prefix' => 'api'], function () {
 Route::get('/', [SearchController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function () {
-    //PippinControllerの管轄
-    Route::resource('/buppin', BoardController::class, ['only' => ['create', 'show', 'edit', 'delete', 'store', 'update']]);
     //BuppinControllerの管轄
     Route::resource('/buppin', BoardController::class, ['only' => ['create', 'show', "edit", 'destroy', 'store']]);
 
