@@ -9,7 +9,6 @@ function Board() {
             const result = await axios.get(
                 '/api/getBoards'
             );
-            console.log(result.data.boards[0])
             setData(result.data);
         };
         fetchData();
