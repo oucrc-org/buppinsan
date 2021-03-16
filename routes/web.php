@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['middleware' => 'api', 'prefix' => 'api'], function () {
+Route::group(['middleware' => ['api'], 'prefix' => 'api'], function () {
     Route::get('/getBoards', [BoardController::class, 'getBoards']);
 });
 

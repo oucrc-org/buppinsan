@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class BoardController extends Controller
 {
@@ -117,7 +116,7 @@ class BoardController extends Controller
      */
     public function getBoards(): string
     {
-        if ($boards = Board::query()->get())
+        if ($boards = Board::query()->with(['tags'])->get())
             return json_encode(['success' => true, 'boards' => $boards]);
         else
             return json_encode(['success' => false]);
