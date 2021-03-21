@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 function Board() {
     const [data, setData] = useState({boards: []});
@@ -17,7 +18,7 @@ function Board() {
     return (
         <div>
             {data.boards.map(item => (
-                <div className={'mb-8'} key={item.id}>
+                <Link to={'board/'+item.id} className={'mb-8'} key={item.id}>
                     <img src={item.photo_path} alt={item.name}/>
                     <h1 className={'text-xl'}>タイトル: {item.name}</h1>
                     <p>
@@ -27,7 +28,7 @@ function Board() {
                         ))}
                     </p>
                     <p>私物かどうか: {item.belong ? '私物' : '備品'}</p>
-                </div>
+                </Link>
             ))}
         </div>
     );
