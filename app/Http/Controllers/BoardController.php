@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Ramsey\Uuid\Type\Integer;
 
 class BoardController extends Controller
 {
@@ -110,7 +112,7 @@ class BoardController extends Controller
 
 
     /**
-     * 指定された物品をすべて取得してJSONを返します。
+     * 指定された物品をすべて返します。
      *
      * @return string
      */
@@ -118,6 +120,21 @@ class BoardController extends Controller
     {
         if ($boards = Board::query()->with(['tags'])->get())
             return json_encode(['success' => true, 'boards' => $boards]);
+        else
+            return json_encode(['success' => false]);
+    }
+
+
+    /**
+     * 物品の詳細情報を返します。
+     *
+     * @param $board_id
+     * @return string
+     */
+    public function getBoardDetail($board_id): string
+    {
+        if ($board = Board::query()->with(['tags'])->findOrFail($board_id))
+            return json_encode(['success' => true, 'board' => $board]);
         else
             return json_encode(['success' => false]);
     }

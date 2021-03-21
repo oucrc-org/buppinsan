@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import Header from "./components/Header";
 import Aside from "./components/Aside";
 import Board from "./layouts/board";
+import BoardDetail from "./layouts/boardDetail";
 import Tag from "./layouts/tag";
 import User from "./layouts/user";
 import './../css/app.css';
@@ -21,6 +22,7 @@ function Index() {
                     <Route path="/board" exact>
                         <Board/>
                     </Route>
+                    <Route path="/board/:board_id" component={BoardDetail} exact/>
                     <Route path="/tag">
                         <Tag/>
                     </Route>
