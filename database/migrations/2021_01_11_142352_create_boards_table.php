@@ -16,7 +16,7 @@ class CreateBoardsTable extends Migration
         Schema::create('boards', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100)->comment('物品名');
-            $table->string('tepra_number', 50)->nullable()->comment('テプラナンバー');
+            $table->string('label_number', 50)->nullable()->comment('テプラナンバー');
             $table->integer('belong')->comment('私物かどうか');
             $table->string('photo_path')->nullable()->comment('写真のURL');
             $table->string('detail', 200)->comment('紹介文');

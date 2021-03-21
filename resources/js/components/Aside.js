@@ -4,6 +4,8 @@ function Aside() {
     return (
         <aside className='aside'>
             <Link to='/'>一覧を表示</Link>
+            <br/>
+            <Link to='/board'>物品一覧（仮）</Link>
             <p className="bg-primary my-3">タグ</p>
 
             <p className="bg-primary my-3">その他</p>

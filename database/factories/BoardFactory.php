@@ -24,7 +24,7 @@ class BoardFactory extends Factory
     {
         return [
             'name' => $this->faker->word(),
-            'tepra_number' => Str::random(7),
+            'label_number' => Str::random(7),
             'belong' => rand(0, 2),
             'photo_path' => $this->faker->imageUrl(),
             'detail' => $this->faker->realText(),
