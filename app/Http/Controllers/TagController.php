@@ -95,4 +95,22 @@ class TagController extends Controller
         Tag::query()->find($id)->delete();
         return redirect(route('tag.index'));
     }
+
+
+//  =================================================
+//   　ここからAPI用の処理
+//  =================================================
+
+    /**
+     * 登録されているタグを全て返す関数
+     *
+     * @return string
+     */
+    public function getAllTags(): string{
+        if ($tags = Tag::all()){
+            return json_encode(['success' => true, 'tags' => $tags]);
+        }else{
+            return json_encode(['success' => false]);
+        }
+    }
 }
