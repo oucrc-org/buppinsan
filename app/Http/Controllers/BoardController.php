@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Board;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Ramsey\Uuid\Type\Integer;
@@ -137,5 +138,18 @@ class BoardController extends Controller
             return json_encode(['success' => true, 'board' => $board]);
         else
             return json_encode(['success' => false]);
+    }
+
+    /**
+     * 特定のタグに関連している物品を全て返す関数
+     *
+     */
+    public function getBoardsByTagId($tag_id){
+        $tag = Tag::query()->with(['boards'])->find($tag_id);
+        try{
+            return ['success' => true, 'board' => $tag];
+        }catch (\Exception $e){
+            return json_encode(['success' => false, 'error' => $e]);
+        }
     }
 }

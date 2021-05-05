@@ -16,8 +16,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['middleware' => ['api'], 'prefix' => 'api'], function () {
+
+    //Board関連
     Route::get('/getBoards', [BoardController::class, 'getBoards']);
     Route::get('/getBoardDetail/{board_id}', [BoardController::class, 'getBoardDetail']);
+    Route::get('/getBoardsByTagId/{tag_id}', [BoardController::class, 'getBoardsByTagId']);
+
+    //Tag関連
+    Route::get('/getAllTags', [TagController::class, 'getAllTags']);
+
 });
 
 
